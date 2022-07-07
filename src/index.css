@@ -20,6 +20,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+p{
+ color: white;
+}
 
 h4{
   font-size:  1rem;
@@ -36,4 +39,5 @@ h3{
 
 a{
   color: rgb(56,56,56);
+  text-decoration: none;
 }

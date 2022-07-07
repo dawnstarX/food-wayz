@@ -19,16 +19,25 @@ function Cuisine() {
   }, [params.type]);
 
   return (
-    <Grid>
-      {cuisine.map((item) => {
-        return (
-          <Card key={item.id}>
-            <img src={item.image} alt="" />
-            <h4>{item.title}</h4>
-          </Card>
-        );
-      })}
-    </Grid>
+    <motion.div
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.5 }}
+    >
+      <Grid>
+        {cuisine.map((item) => {
+          return (
+            <Card key={item.id}>
+              <Link to={"/recipe/" + item.id}>
+                <img src={item.image} alt="" />
+                <h4>{item.title}</h4>
+              </Link>
+            </Card>
+          );
+        })}
+      </Grid>
+    </motion.div>
   );
 }
 

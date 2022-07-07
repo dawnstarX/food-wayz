@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Searched = () => {
   let params = useParams();
@@ -20,12 +22,19 @@ const Searched = () => {
   }, [params.search]);
 
   return (
-    <Grid>
+    <Grid
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.5 }}
+    >
       {searched.map((item) => {
         return (
           <Card key={item.id}>
-            <img src={item.image} alt="" />
-            <h4>{item.title}</h4>
+            <Link to={"/recipe/" + item.id}>
+              <img src={item.image} alt="" />
+              <h4>{item.title}</h4>
+            </Link>
           </Card>
         );
       })}
@@ -33,24 +42,24 @@ const Searched = () => {
   );
 };
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-grap: 4rem;
 `;
 const Card = styled.div`
-    width:80%;
-    img{
-    width:100%;
-     border-radius:2rem;
-   }
-   a{
-   }
-     text-decoration:none;
-   }
-   h4{
-     text-align:center;
-     padding:1rem;   
+  width: 80%;
+  img {
+    width: 100%;
+    border-radius: 2rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  h4 {
+    text-align: center;
+    padding: 1rem;
+  }
 `;
 
 export default Searched;

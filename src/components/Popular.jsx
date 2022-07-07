@@ -2,6 +2,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Popular = () => {
   const [popular, setPopular] = useState([]);
@@ -33,15 +34,18 @@ const Popular = () => {
           options={{
             perPage: 4,
             type: "loop",
+            drag: "free",
           }}
         >
           {popular.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
+                  <Link to={"/recipe/" + recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
+                  </Link>
                 </Card>
               </SplideSlide>
             );
@@ -69,23 +73,22 @@ const Card = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  p{
+  p {
     position: absolute;
     z-index: 10;
     bottom: 15%;
-    padding:1rem;
+    padding: 1rem;
     width: 15rem;
-    tranform: translate(-50%,0%)
+    tranform: translate(-50%, 0%);
     color: white;
-    width: 100%
+    width: 100%;
     text-align: center;
     font-weight: 600;
     font-size: 1.2rem;
     height: 40%;
     display: flex;
     justify-content: center;
-    align-items: center; 
-
+    align-items: center;
   }
 `;
 const Gradient = styled.div`
