@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/food-wayz/static/css/main.5664e28f.css",
+    "main.js": "/food-wayz/static/js/main.a22e8753.js",
+    "index.html": "/food-wayz/index.html",
+    "main.5664e28f.css.map": "/food-wayz/static/css/main.5664e28f.css.map",
+    "main.a22e8753.js.map": "/food-wayz/static/js/main.a22e8753.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5664e28f.css",
+    "static/js/main.a22e8753.js"
+  ]
+}
